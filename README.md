@@ -54,7 +54,7 @@ Evaluate a trained model with
 
 - Change the branch:
 ```sh
-git checkout factors_complete
+git checkout factors
 ```
 
 - Set up virtual environment
