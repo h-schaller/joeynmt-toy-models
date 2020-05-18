@@ -38,14 +38,14 @@ Preprocess data:
 ./scripts/preprocess_data.sh
 ```
 
-Then finally train a model:
+Train and apply a BPE model and create vocabulary file for training. Do this for vocabulary size of 2000 and 3000:
 
 ```sh
-./scripts/train.sh
+./scripts/train_and_apply_bpe.sh
 ```
 
-Evaluate a trained model with
+Then train and evaluate the three models:
 
 ```sh
-./scripts/evaluate.sh
+./scripts/train_model.sh
 ```
