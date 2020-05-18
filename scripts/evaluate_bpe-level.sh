@@ -3,7 +3,8 @@
 scripts=`dirname "$0"`
 base=$scripts/..
 
-data=$base/preprocessed_data
+preprocessed_data=$base/preprocessed_data
+data=$base/data
 configs=$base/configs
 
 translations=$base/translations
@@ -13,8 +14,8 @@ trg=en
 
 MOSES=$base/tools/moses-scripts/scripts
 
-num_threads=4
-device=5
+num_threads=12
+device=0
 
 # measure time
 
@@ -41,11 +42,11 @@ for model_name in $model_name_dir; do
 
     # undo tokenization
 
-    cat translations_sub/test.tok.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations_sub/test.$model_name.$trg
+    cat $translations_sub/test.tok.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations_sub/test.$model_name.$trg
 
     # compute case-sensitive BLEU on detokenized data
 
-    cat $translations_sub/test.$model_name.$trg | sacrebleu $data/test.$trg
+    cat $translations_sub/test.$model_name.$trg | sacrebleu $data/test.de-en.$trg
 
 done
 
