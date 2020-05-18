@@ -137,3 +137,6 @@ data/
 preprocessed_data/
 translations/
 models/
+bpe/
+shared_models/
+trained_models/
