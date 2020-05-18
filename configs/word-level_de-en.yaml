@@ -1,23 +1,23 @@
-name: "low_resource_example"
+name: "word-level_de-en"
 
 data:
-    src: "?"
-    trg: "?"
-    train: "?"
-    dev:   "?"
-    test:  "?"
-    level: "?"
+    src: "de"
+    trg: "en"
+    train: "preprocessed_data/train.tok.de-en"
+    dev:   "preprocessed_data/dev.tok.de-en"
+    test:  "preprocessed_data/test.tok.de-en"
+    level: "word"
     lowercase: False
     max_sent_length: 100
     # either use a vocabulary limit:
-    src_voc_limit: ?
-    trg_voc_limit: ?
+    src_voc_limit: 2000
+    trg_voc_limit: 2000
     # or (= not both!) a file with a vocabulary built before starting the training:
-    src_vocab: "?"
-    trg_vocab: "?"
+    # src_vocab: "?"
+    # trg_vocab: "?"
 
 testing:
-    beam_size: ?
+    beam_size: 5
     alpha: 1.0
 
 training:
@@ -37,7 +37,7 @@ training:
     validation_freq: 500
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "?"
+    model_dir: "models/word-level_de-en"
     overwrite: False
     shuffle: True
     use_cuda: False
