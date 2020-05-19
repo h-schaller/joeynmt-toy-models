@@ -18,6 +18,10 @@ git clone https://github.com/bricksdont/joeynmt.git $tools/joeynmt
 
 pip install --upgrade torch==1.4.0
 
+# install this sacremoses version, for reproducibility
+
+pip install sacremoses==0.0.38
+
 # install Moses scripts for preprocessing
 
 git clone https://github.com/bricksdont/moses-scripts $tools/moses-scripts
