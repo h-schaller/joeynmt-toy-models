@@ -29,7 +29,7 @@ def main():
             sys.exit('There is no beam size specified in the YAML file.')
 
         if file['training']['model_dir']:
-            file['testing']['beam_size'] = "trained_models/bpe_de-en_3000"
+            file['training']['model_dir'] = "trained_models/bpe_de-en_3000"
 
         if file['name']:
             file['name'] = "bpe_de-en_3000_new_beam-size"
