@@ -81,7 +81,10 @@ To test translating with beam sizes from 2 to 20, run the following script. This
 ./scripts/analyse_beam_sizes.sh
 ```
 
-This is the resulting graph:
+**This is the resulting graph:**
+
+
+
 ![Beam size graph](beam_graph.png)
 
 As can be seen on the graph, the beam size doesn't influence the BLEU score greatly. Since a beam size of 4 showed the best result with only being 4 times slower than using a beam size of 1, I would go for this beam size.
