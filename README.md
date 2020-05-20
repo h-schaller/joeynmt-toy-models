@@ -75,7 +75,13 @@ Eying the translations, I assume that the worse BLEU score of the model trained 
 Regarding the two models trained with subword vocabularies, it makes sense that the one trained with a larger vocabulary is better since it can translate even more words that were unseen during training as long as they contain the subword units that were used for training the translation model.
 
 # Part II: Impact of beam size on translation quality
+To test translating with beam sizes from 2 to 20, run the following script. This will translate the test set 10 times with the best model from above, the model using a subword vocabulary of size 3'000:
 
 ```sh
 ./scripts/analyse_beam_sizes.sh
 ```
+
+This is the resulting graph:
+![Beam size graph](beam_graph.png)
+
+As can be seen on the graph, the beam size doesn't influence the BLEU score greatly. Since a beam size of 4 showed the best result with only being 4 times slower than using a beam size of 1, I would go for this beam size.
