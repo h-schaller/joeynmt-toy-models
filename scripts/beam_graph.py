@@ -30,6 +30,8 @@ def main():
     plt.ylim(15.9, 16.4)
     plt.yticks(np.arange(16.0, 16.5, 0.1))
     plt.xticks(np.arange(0, 22, 2.0))
+    plt.xlabel('BEAM SIZE')
+    plt.ylabel('BLEU')
     plt.savefig("beam_graph.png")
 
 
