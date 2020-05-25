@@ -71,8 +71,20 @@ The following BLEU scores were calculated for the three trained models:
 As can be seen, there is an improvement of 1.5 BLEU when using a subword vocabulary when compared to using a whole-word vocabulary.
 When a larger subword vocabulary is used to train a translation model, the improvement of the BLEU score becomes even clearer with an improvement of 4 BLEU compared to the model trained with a smaller subword vocabulary.
 
-Eying the translations, I assume that the worse BLEU score of the model trained with the whole-word vocabulary correlates with the numerous '<unk>' symbols in the translations (which of course do nothing to improve the BLEU score, they just make the text disfluent). Also, many words which transport the main message of a sentence are missing because they don't appear in the vocabulary, and only frequently occurring phrases which aren't highly relevant content-wise, for example XY, are translated.
-Regarding the two models trained with subword vocabularies, it makes sense that the one trained with a larger vocabulary is better since it can translate even more words that were unseen during training as long as they contain the subword units that were used for training the translation model.
+Eying the translations, I assume that the worse BLEU score of the model trained with the whole-word vocabulary correlates with the numerous '<unk>' symbols in the translations (which of course do nothing to improve the BLEU score, they just make the text disfluent). Also, many words which transport the main message of a sentence are missing because they don't appear in the vocabulary, and only frequently occurring phrases which aren't highly relevant content-wise are translated, for example in:
+
+> "even with the <unk> of the <unk>"  
+or  
+> "And that means that <unk> were <unk> to find the right <unk>, <unk>!"
+
+which are translated the following way by the translation model with vocabulary size 3000:
+> "even with CTOs of the Fortun-50-companies"
+and
+> "And that was that BWL-students were involved to find a real place."
+
+Thus, it can be seen that the models trained on the subword vocabulary can transport much more of the sentence meaning, even if the translations are far from perfect.
+
+Regarding the two models trained with subword vocabularies, it makes sense that these are better since they can translate words that were unseen during training when they contain the subword units that were used for training the translation model.
 
 # Part II: Impact of beam size on translation quality
 To test translating with beam sizes from 2 to 20, run the following script. This will translate the test set 10 times with the best model from above, the model using a subword vocabulary of size 3'000:
